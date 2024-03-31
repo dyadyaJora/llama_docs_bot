@@ -1,10 +1,12 @@
 import os
 
-from llama_index import ServiceContext, set_global_service_context
-from llama_index.llms import OpenAI
-from llama_index.query_engine.router_query_engine import RouterQueryEngine
+from llama_index.core import ServiceContext, set_global_service_context
+from llama_index.llms.openai import OpenAI
+from llama_index.core.query_engine.router_query_engine import RouterQueryEngine
 from indexing import get_query_engine_tool
+import dotenv
 
+dotenv.load_dotenv()
 # setup a global service context
 llm = OpenAI(model="gpt-3.5-turbo-16k", temperature=0, max_tokens=512)
 # embed_model = OpenAIEmbedding(embed_batch_size=50)
